@@ -1,0 +1,22 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://127.0.0.1:27017/build-manager?gssapiServiceName=mongodb
+    output:
+        ansi:
+            enabled: always
+---
+spring:
+    profiles: test
+    datasource:
+        url: jdbc:postgresql://localhost:5432/build-manager
+        username: postgres
+        password: admin
+    jpa:
+        properties:
+            hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+server:
+    port: 9000
